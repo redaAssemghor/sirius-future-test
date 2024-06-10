@@ -31,7 +31,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-[#EEEEFF] rounded-[30px] w-[236px] min-h-[704px] flex flex-col items-center p-5">
+    <div className="bg-[#EEEEFF] rounded-[30px] max-w-[236px] flex flex-col items-center p-5">
       <img src={Logo} alt="Logo" className="w-[148px] h-[58px] mb-5" />
       <ul className="w-full">
         {navItems.map((item, index) => (
