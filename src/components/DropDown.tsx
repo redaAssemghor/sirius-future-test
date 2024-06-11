@@ -1,9 +1,11 @@
+import React from "react";
+import { FaTimes } from "react-icons/fa";
 import user from "../assets/user.png";
 
 function DropDown({ open, closeDropdown }) {
   return (
     <section
-      className={`absolute top-5 right-0 w-64 h-64 bg-white border rounded-lg border-purple-500 flex flex-col p-8 shadow-lg ${
+      className={`absolute top-16 right-0 w-64 h-64 bg-white border rounded-lg border-purple-500 flex flex-col p-8 shadow-lg ${
         open ? "block" : "hidden"
       }`}
     >
@@ -14,7 +16,7 @@ function DropDown({ open, closeDropdown }) {
               className="absolute top-0 right-0 text-gray-500 hover:text-gray-700"
               onClick={closeDropdown}
             >
-              &times;
+              <FaTimes size={20} />
             </button>
             <h1 className="text-lg font-semibold">Смена пользователя</h1>
           </div>

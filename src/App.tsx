@@ -1,7 +1,7 @@
-import LoginForm from "./components/LogiForm.jsx";
-import Navbar from "./components/Navbar.jsx";
-import Calendar from "./components/Calendar.jsx";
-import Header from "./components/Header.jsx";
+import LoginForm from "./components/LogiForm.js";
+import Navbar from "./components/Navbar.js";
+import Calendar from "./components/Calendar.js";
+import Header from "./components/Header.js";
 import "./index.css";
 
 function App() {
