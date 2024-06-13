@@ -3,9 +3,14 @@ import { FaArrowLeft, FaArrowRight, FaChevronDown } from "react-icons/fa";
 import InterfaceSvg from "./svgs/InterfaceSvg";
 import Lesson from "./Lesson";
 
+interface LessonType {
+  day: number;
+  time: string;
+}
+
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [lessons, setLessons] = useState([]);
+  const [lessons, setLessons] = useState<LessonType[]>([]);
 
   const daysOfWeek = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
   const monthNames = [
@@ -37,12 +42,12 @@ const Calendar = () => {
     );
   };
 
-  const getDaysInMonth = (year, month) => {
+  const getDaysInMonth = (year: number, month: number): number => {
     return new Date(year, month + 1, 0).getDate();
   };
 
   const generateRandomLessons = () => {
-    const lessons = [];
+    const lessons: LessonType[] = [];
     const daysInMonth = getDaysInMonth(
       currentDate.getFullYear(),
       currentDate.getMonth()
@@ -74,7 +79,7 @@ const Calendar = () => {
     currentDate.getMonth()
   );
 
-  const calendarDays = [];
+  const calendarDays: (string | number)[] = [];
   for (let i = 0; i < firstDayOfMonth; i++) {
     calendarDays.push("");
   }
@@ -142,7 +147,9 @@ const Calendar = () => {
               <div>{day}</div>
               {lessons.some((lesson) => lesson.day === day) && (
                 <Lesson
-                  time={lessons.find((lesson) => lesson.day === day).time}
+                  time={
+                    lessons.find((lesson) => lesson.day === day)?.time || ""
+                  }
                 />
               )}
             </div>
