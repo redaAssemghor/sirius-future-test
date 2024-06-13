@@ -23,7 +23,7 @@ const Calendar = () => {
     "Де",
   ];
 
-  const subjects = ["Math", "Science", "History", "Art"]; // Example subjects
+  const subjects = ["Math", "Science", "History", "Art"];
 
   const handlePreviousMonth = () => {
     setCurrentDate(
@@ -135,11 +135,11 @@ const Calendar = () => {
           {calendarDays.map((day, index) => (
             <div
               key={index}
-              className={`p-4 border-t border-l ${
-                day === "" ? "" : "border-r"
-              } relative`}
+              className={` border-t border h-[150px] flex flex-col justify-between ${
+                day === "" ? "bg-gray-100" : ""
+              }`}
             >
-              {day}
+              <div>{day}</div>
               {lessons.some((lesson) => lesson.day === day) && (
                 <Lesson
                   time={lessons.find((lesson) => lesson.day === day).time}
