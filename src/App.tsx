@@ -7,7 +7,7 @@ import "./index.css";
 import LoginForm from "./components/LogiForm";
 
 const App = () => {
-  const [activeView, setActiveView] = useState<number | null>(null);
+  const [activeView, setActiveView] = useState<number | null>(0);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLinkClick = (index: number) => {
