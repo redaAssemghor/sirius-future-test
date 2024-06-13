@@ -17,21 +17,21 @@ const Main: React.FC = () => {
     return { hours, minutes, seconds };
   };
 
-  const [totalSeconds, setTotalSeconds] = useState(36000); // 10 hours in seconds
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(36000));
+  const initialSeconds = 36000; // 10 hours in seconds
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(
+    calculateTimeLeft(initialSeconds)
+  );
 
   useEffect(() => {
+    let secondsRemaining = initialSeconds;
+
     const timer = setInterval(() => {
-      setTotalSeconds((prev) => {
-        if (prev > 0) {
-          const newTotalSeconds = prev - 1;
-          setTimeLeft(calculateTimeLeft(newTotalSeconds));
-          return newTotalSeconds;
-        } else {
-          clearInterval(timer);
-          return 0;
-        }
-      });
+      if (secondsRemaining > 0) {
+        secondsRemaining -= 1;
+        setTimeLeft(calculateTimeLeft(secondsRemaining));
+      } else {
+        clearInterval(timer);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
