@@ -1,7 +1,12 @@
 import { FaSignOutAlt, FaTimes } from "react-icons/fa";
 import user from "../assets/user.png";
 
-function DropDown({ open, closeDropdown }) {
+interface DropDownProps {
+  open: boolean;
+  closeDropdown: () => void;
+}
+
+const DropDown: React.FC<DropDownProps> = ({ open, closeDropdown }) => {
   return (
     <section
       className={`absolute top-16 right-0 w-64 h-64 bg-white border rounded-lg border-purple-500 flex flex-col p-8 shadow-lg ${
@@ -11,7 +16,7 @@ function DropDown({ open, closeDropdown }) {
       {open && (
         <div className="flex flex-col gap-4 relative">
           <button
-            className="absolute -top-5 -right-5 text-purple-500 hover:text-gray-700"
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
             onClick={closeDropdown}
           >
             <FaTimes size={20} />
@@ -46,6 +51,6 @@ function DropDown({ open, closeDropdown }) {
       )}
     </section>
   );
-}
+};
 
 export default DropDown;
