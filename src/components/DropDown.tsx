@@ -16,7 +16,7 @@ const DropDown: React.FC<DropDownProps> = ({ open, closeDropdown }) => {
       {open && (
         <div className="flex flex-col gap-4 relative">
           <button
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            className="absolute -top-5 -right-5 text-gray-500 hover:text-gray-700"
             onClick={closeDropdown}
           >
             <FaTimes size={20} />
