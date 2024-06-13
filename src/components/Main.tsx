@@ -1,7 +1,46 @@
+import React, { useState, useEffect } from "react";
 import mainImage from "../assets/main.png";
 import IconSvg from "./svgs/IconSvg";
 
-const Main = () => {
+interface TimeLeft {
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+const Main: React.FC = () => {
+  const calculateTimeLeft = (totalSeconds: number): TimeLeft => {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    return { hours, minutes, seconds };
+  };
+
+  const [totalSeconds, setTotalSeconds] = useState(36000); // 10 hours in seconds
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft(36000));
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTotalSeconds((prev) => {
+        if (prev > 0) {
+          const newTotalSeconds = prev - 1;
+          setTimeLeft(calculateTimeLeft(newTotalSeconds));
+          return newTotalSeconds;
+        } else {
+          clearInterval(timer);
+          return 0;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    console.log("Time left updated:", timeLeft);
+  }, [timeLeft]);
+
   return (
     <div className="p-4">
       <div className="flex flex-col md:flex-row gap-4">
@@ -22,16 +61,16 @@ const Main = () => {
           />
         </div>
 
-        <div className="bg-[#FFF1CB] flex flex-col justify-center items-center gap-2 md:gap-4 rounded-3xl w-full md:w-[344px] h-auto md:h-[248px] p-4">
+        <div className="bg-[#FFF1CB] flex flex-col justify-center items-center gap-2 md:gap-4 rounded-3xl w-full md:w-[344px] h-auto md:h-[248px] p-16">
           <h1 className="text-center text-sm md:text-base">
             Следующее занятие начнется через:
           </h1>
           <h3 className="text-xl md:text-3xl font-bold">
-            6 <span className="text-sm md:text-lg">д</span> 12{" "}
-            <span className="text-sm md:text-lg">ч</span> 24{" "}
-            <span className="text-sm md:text-lg">мин</span>
+            {timeLeft.hours} <span className="text-sm md:text-lg">ч</span>{" "}
+            {timeLeft.minutes} <span className="text-sm md:text-lg">мин</span>{" "}
+            {timeLeft.seconds} <span className="text-sm md:text-lg">сек</span>
           </h3>
-          <button className="border-dashed border border-black rounded-full px-4 py-2 text-xs md:text-sm">
+          <button className="border-dashed border-2 border-black rounded-full font-semibold w-full p-2 text-lg">
             Button
           </button>
         </div>

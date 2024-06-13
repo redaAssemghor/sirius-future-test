@@ -24,24 +24,24 @@ const App = () => {
 
   return (
     <div className="h-screen">
-      {isAuthenticated ? (
-        <div className="grid grid-rows-[auto_1fr] grid-cols-[auto_1fr] h-full">
-          <div className="row-span-2 p-4">
-            <Navbar onLinkClick={handleLinkClick} />
-          </div>
-          <div className="bg-white p-4">
-            <Header
-              headerText={activeView === 0 ? "Добро пожаловать, Михаил!" : ""}
-            />
-          </div>
-          <div className="bg-white p-4">
-            {activeView === 0 && <Main />}
-            {activeView === 1 && <Calendar />}
-          </div>
+      {/* {isAuthenticated ? ( */}
+      <div className="grid grid-rows-[auto_1fr] grid-cols-[auto_1fr] h-full">
+        <div className="row-span-2 p-4">
+          <Navbar onLinkClick={handleLinkClick} />
         </div>
-      ) : (
+        <div className="bg-white p-4">
+          <Header
+            headerText={activeView === 0 ? "Добро пожаловать, Михаил!" : ""}
+          />
+        </div>
+        <div className="bg-white p-4">
+          {activeView === 0 && <Main />}
+          {activeView === 1 && <Calendar />}
+        </div>
+      </div>
+      {/* ) : (
         <LoginForm onLogin={handleLogin} />
-      )}
+      )} */}
     </div>
   );
 };
