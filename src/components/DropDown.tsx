@@ -1,5 +1,4 @@
-import React from "react";
-import { FaTimes } from "react-icons/fa";
+import { FaSignOutAlt, FaTimes } from "react-icons/fa";
 import user from "../assets/user.png";
 
 function DropDown({ open, closeDropdown }) {
@@ -10,16 +9,15 @@ function DropDown({ open, closeDropdown }) {
       }`}
     >
       {open && (
-        <div className="flex flex-col gap-4">
-          <div className="relative pt-8">
-            <button
-              className="absolute top-0 right-0 text-gray-500 hover:text-gray-700"
-              onClick={closeDropdown}
-            >
-              <FaTimes size={20} />
-            </button>
-            <h1 className="text-lg font-semibold">Смена пользователя</h1>
-          </div>
+        <div className="flex flex-col gap-4 relative">
+          <button
+            className="absolute -top-5 -right-5 text-purple-500 hover:text-gray-700"
+            onClick={closeDropdown}
+          >
+            <FaTimes size={20} />
+          </button>
+          <h1 className="text-lg font-semibold">Смена пользователя</h1>
+
           <button className="bg-purple-100 flex p-2 gap-2 rounded-lg text-sm w-48 hover:bg-purple-200">
             <img src={user} alt="User" className="w-6 h-6 rounded-full" />
             <div>
@@ -37,7 +35,12 @@ function DropDown({ open, closeDropdown }) {
 
           <div className="flex justify-between mt-4">
             <button className="text-blue-500 hover:text-blue-700">Выход</button>
-            <button className="text-blue-500 hover:text-blue-700">Выход</button>
+            <button
+              className="text-blue-500 hover:text-blue-700"
+              onClick={closeDropdown}
+            >
+              <FaSignOutAlt size={20} />
+            </button>
           </div>
         </div>
       )}

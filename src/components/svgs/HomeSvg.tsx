@@ -1,6 +1,4 @@
-import React from "react";
-
-const HoseSvg = () => {
+const HomeSvg = () => {
   return (
     <svg
       width="22"
@@ -17,4 +15,4 @@ const HoseSvg = () => {
   );
 };
 
-export default HoseSvg;
+export default HomeSvg;
