@@ -77,34 +77,36 @@ const Main: React.FC = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-4 mt-4">
-        <div className="flex flex-col gap-4 p-4 border-2 border-[#7362BC] rounded-3xl w-full lg:w-[300px]">
-          <h1 className="font-bold text-2xl">Баланс занятий</h1>
-          <ul className="flex flex-col gap-2">
-            <li className="border-b border-[#EEEEFF] flex justify-between items-center pb-2">
-              Ментальная Арифметика
-              <span className="bg-[#EEEEFF] rounded-full w-8 h-8 flex items-center justify-center">
-                32
-              </span>
-            </li>
-            <li className="border-b border-[#EEEEFF] flex justify-between items-center pb-2">
-              Программирование
-              <span className="bg-[#EEEEFF] rounded-full w-8 h-8 flex items-center justify-center">
-                0
-              </span>
-            </li>
-            <li className="flex justify-between items-center">
-              Скорочтение
-              <span className="bg-[#EEEEFF] rounded-full w-8 h-8 flex items-center justify-center">
-                4
-              </span>
-            </li>
-          </ul>
+        <div className="flex flex-col justify-between gap-4 p-8 border-2 border-[#7362BC] rounded-3xl w-full lg:w-[300px]">
+          <div className="flex flex-col gap-10">
+            <h1 className="font-bold text-2xl">Баланс занятий</h1>
+            <ul className="flex flex-col gap-10">
+              <li className="border-b border-[#EEEEFF] flex justify-between items-center pb-2">
+                Ментальная Арифметика
+                <span className="bg-[#EEEEFF] rounded-full w-8 h-8 flex items-center justify-center">
+                  32
+                </span>
+              </li>
+              <li className="border-b border-[#EEEEFF] flex justify-between items-center pb-2">
+                Программирование
+                <span className="bg-[#EEEEFF] rounded-full w-8 h-8 flex items-center justify-center">
+                  0
+                </span>
+              </li>
+              <li className="flex justify-between items-center">
+                Скорочтение
+                <span className="bg-[#EEEEFF] rounded-full w-8 h-8 flex items-center justify-center">
+                  4
+                </span>
+              </li>
+            </ul>
+          </div>
           <button className="bg-[#DECFFF] w-full rounded-full py-2">
             Button
           </button>
         </div>
 
-        <div className="flex flex-col gap-4 p-4 border-2 border-[#7362BC] rounded-3xl flex-1">
+        <div className="flex flex-col gap-4 p-8 border-2 border-[#7362BC] rounded-3xl flex-1">
           <h1 className="font-bold text-2xl">Ближайшие уроки</h1>
 
           <div className="flex flex-col gap-4 md:flex-row items-center justify-evenly border-b border-gray-300 pb-2">
